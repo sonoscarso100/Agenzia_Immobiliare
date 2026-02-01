@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Dettaglio immobile in vendita o affitto. Agenzia Immobiliare.">
+  <title>Immobile | Immobili | Agenzia Immobiliare</title>
+  <meta property="og:title" content="Immobile | Agenzia Immobiliare">
+  <meta property="og:description" content="Dettaglio immobile. Agenzia Immobiliare.">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    /* Galleria dettaglio immobile: principale + thumb */
+    .immobile-gallery { margin-bottom: var(--space-8); border-radius: var(--radius-lg); overflow: hidden; background: var(--color-neutral-200); }
+    .immobile-gallery img { width: 100%; height: auto; display: block; }
+    .immobile-gallery__thumbs { display: flex; flex-wrap: wrap; gap: var(--space-2); padding: var(--space-3); margin: 0; }
+    .immobile-gallery__thumb { padding: 0; border: 2px solid transparent; border-radius: var(--radius-sm); overflow: hidden; cursor: pointer; background: none; }
+    .immobile-gallery__thumb:hover { border-color: var(--color-primary); }
+    .immobile-gallery__thumb img { width: 80px; height: 60px; object-fit: cover; }
+  </style>
+</head>
+<body>
+  <header class="layout-header">
+    <div class="layout-header__inner layout-container">
+      <a href="index.html" class="layout-header__logo">Agenzia Immobiliare</a>
+      <nav class="layout-header__nav" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="immobili.html">Immobili</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout-main">
+    <!-- Breadcrumb: popolato da main.js -->
+    <div class="layout-container" style="padding-top: var(--space-6);">
+      <nav id="immobile-breadcrumb" aria-label="Breadcrumb">
+        <ol style="list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); font-size: var(--font-size-sm); color: var(--color-neutral-500);">
+          <li><a href="index.html">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="immobili.html">Immobili</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Immobile</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Dettaglio immobile: popolato da main.js (titolo, galleria, descrizione, caratteristiche, CTA) -->
+    <article id="immobile-detail" class="layout-section" style="display: none;" aria-labelledby="immobile-title">
+      <div class="layout-container layout-container--narrow">
+        <header id="immobile-header" style="margin-bottom: var(--space-8);">
+          <!-- Badge, titolo, meta, prezzo iniettati da JS -->
+        </header>
+        <div id="immobile-gallery">
+          <!-- Galleria immagini iniettata da JS -->
+        </div>
+        <section id="immobile-descrizione" aria-labelledby="descrizione">
+          <!-- Descrizione iniettata da JS -->
+        </section>
+        <section id="immobile-dettagli" aria-labelledby="caratteristiche" style="margin-top: var(--space-10);">
+          <!-- Dettagli tecnici iniettati da JS -->
+        </section>
+        <section id="immobile-cta" aria-labelledby="contatto-immobile" style="margin-top: var(--space-10);">
+          <!-- CTA contatto iniettata da JS -->
+        </section>
+      </div>
+    </article>
+
+    <!-- Fallback: immobile non trovato (id mancante o non valido) -->
+    <div id="immobile-not-found" class="layout-section" style="display: none;" role="status">
+      <div class="layout-container layout-container--narrow">
+        <h1 class="layout-section__title">Immobile non trovato</h1>
+        <p style="margin-bottom: var(--space-6);">L’immobile richiesto non è disponibile o l’indirizzo non è corretto.</p>
+        <a href="immobili.html" class="btn btn--primary">Vedi tutti gli immobili</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="layout-footer">
+    <div class="layout-footer__inner layout-container">
+      <div class="layout-footer__grid">
+        <section aria-labelledby="footer-agenzia">
+          <h3 id="footer-agenzia">Agenzia Immobiliare</h3>
+          <p>Vendita e affitto di immobili. Consulenza professionale e trasparente.</p>
+        </section>
+        <section aria-labelledby="footer-link">
+          <h3 id="footer-link">Link utili</h3>
+          <ul>
+            <li><a href="immobili.html">Immobili</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="servizi.html">Servizi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="footer-contatti">
+          <h3 id="footer-contatti">Contatti</h3>
+          <p>Via Example 1, 20100 Milano<br>Tel. 02 1234567</p>
+        </section>
+      </div>
+      <div class="layout-footer__bottom">
+        <p>&copy; 2025 Agenzia Immobiliare. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

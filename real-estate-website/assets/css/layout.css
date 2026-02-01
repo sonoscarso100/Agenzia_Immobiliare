@@ -1,0 +1,209 @@
+/* ==========================================================================
+   LAYOUT - Container, griglia, header, footer, sezioni
+   Mobile-first, responsive
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   BODY BASE
+   -------------------------------------------------------------------------- */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  font-size: var(--font-size-base);
+  color: var(--color-neutral-800);
+  background-color: var(--color-neutral-50);
+}
+
+/* --------------------------------------------------------------------------
+   CONTAINER RESPONSIVE
+   Centrato, max-width, padding laterale (aumenta su schermi grandi)
+   -------------------------------------------------------------------------- */
+.layout-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-padding);
+}
+
+/* Container stretto per blocchi di testo (es. chi-siamo, contatti) */
+.layout-container--narrow {
+  max-width: 720px;
+}
+
+/* --------------------------------------------------------------------------
+   GRID FLESSIBILE
+   Colonne che si adattano: 1 col mobile, 2 da tablet, 3 da desktop
+   -------------------------------------------------------------------------- */
+.layout-grid {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .layout-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* Griglia a 2 colonne (es. form + info) */
+.layout-grid--2 {
+  display: grid;
+  gap: var(--space-6);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .layout-grid--2 {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-8);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   HEADER BASE
+   Barra fissa in alto, altezza standard, sfondo solido
+   -------------------------------------------------------------------------- */
+.layout-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  min-height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-inline: var(--container-padding);
+  background-color: var(--color-primary);
+  color: var(--color-neutral-100);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.layout-header__inner {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Nav orizzontale dentro header (stile base) */
+.layout-header__nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER BASE
+   Blocco in fondo pagina, sfondo scuro, padding generoso
+   -------------------------------------------------------------------------- */
+.layout-footer {
+  margin-top: auto;
+  padding-block: var(--footer-padding-block);
+  padding-inline: var(--container-padding);
+  background-color: var(--color-primary-dark);
+  color: var(--color-neutral-200);
+}
+
+.layout-footer__inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+}
+
+.layout-footer__grid {
+  display: grid;
+  gap: var(--space-8);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .layout-footer__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .layout-footer__grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Copyright / bottom bar */
+.layout-footer__bottom {
+  margin-top: var(--space-10);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-neutral-700);
+  font-size: var(--font-size-sm);
+  color: var(--color-neutral-400);
+}
+
+/* --------------------------------------------------------------------------
+   SEZIONI GENERICHE
+   Blocchi verticali con padding consistente (mobile-first)
+   -------------------------------------------------------------------------- */
+.layout-section {
+  padding-block: var(--space-10);
+}
+
+@media (min-width: 768px) {
+  .layout-section {
+    padding-block: var(--space-16);
+  }
+}
+
+/* Sezione con sfondo alternativo per ritmo visivo */
+.layout-section--alt {
+  background-color: var(--color-neutral-100);
+}
+
+/* Sezione hero / full-width (es. sopra la fold) */
+.layout-section--hero {
+  padding-block: var(--space-12);
+  background-color: var(--color-primary);
+  color: var(--color-neutral-100);
+}
+
+@media (min-width: 768px) {
+  .layout-section--hero {
+    padding-block: var(--space-20);
+  }
+}
+
+/* Titolo di sezione comune */
+.layout-section__title {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-primary);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 768px) {
+  .layout-section__title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-8);
+  }
+}
+
+.layout-section__title--light {
+  color: var(--color-neutral-100);
+}
+
+/* Wrapper per main (flex column per sticky footer) */
+.layout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}

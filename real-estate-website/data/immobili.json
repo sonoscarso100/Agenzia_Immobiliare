@@ -1,0 +1,136 @@
+[
+  {
+    "id": 1,
+    "titolo": "Appartamento in centro",
+    "tipologia": "vendita",
+    "tipoImmobile": "Appartamento",
+    "prezzo": 420000,
+    "prezzoDisplay": "€ 420.000",
+    "superficie": 120,
+    "locali": 4,
+    "citta": "Milano",
+    "dataInserimento": "2025-01-20",
+    "descrizione": "Appartamento ristrutturato in palazzo signorile nel cuore di Milano. Soggiorno luminoso con doppia esposizione, cucina abitabile, due camere da letto e due bagni. Portineria e ascensore. Possibilità di box in garage.",
+    "dettagliTecnici": {
+      "piano": "3 con ascensore",
+      "riscaldamento": "Autonomo",
+      "classeEnergetica": "C",
+      "annoCostruzione": "1960",
+      "stato": "Ristrutturato"
+    },
+    "immagini": [
+      { "src": "assets/img/placeholders/appartamento-centro.jpg", "alt": "Soggiorno luminoso con vista su piazza" },
+      { "src": "assets/img/placeholders/appartamento-centro.jpg", "alt": "Cucina abitabile" }
+    ]
+  },
+  {
+    "id": 2,
+    "titolo": "Villa con giardino",
+    "tipologia": "affitto",
+    "tipoImmobile": "Villa",
+    "prezzo": 2200,
+    "prezzoDisplay": "€ 2.200/mese",
+    "superficie": 250,
+    "locali": 6,
+    "citta": "Lago di Como",
+    "dataInserimento": "2025-01-18",
+    "descrizione": "Villa su due livelli con ampio giardino e piscina, facciata in pietra. Zona living con camino, cucina professionale, 4 camere e 3 bagni. Posti auto. Ideale per famiglie o soggiorni di lunga durata.",
+    "dettagliTecnici": {
+      "piano": "Piano terra e primo",
+      "riscaldamento": "Autonomo",
+      "classeEnergetica": "D",
+      "giardino": "Sì",
+      "postiAuto": "2"
+    },
+    "immagini": [
+      { "src": "assets/img/placeholders/villa-con-giardino.jpg", "alt": "Villa con giardino e piscina, facciata in pietra" }
+    ]
+  },
+  {
+    "id": 3,
+    "titolo": "Attico con terrazzo",
+    "tipologia": "vendita",
+    "tipoImmobile": "Attico",
+    "prezzo": 680000,
+    "prezzoDisplay": "€ 680.000",
+    "superficie": 180,
+    "locali": 5,
+    "citta": "Roma",
+    "dataInserimento": "2025-01-15",
+    "descrizione": "Attico con ampio terrazzo e vista panoramica sulla città. Open space living-cucina, 3 camere, 2 bagni. Soffitti alti, finiture di pregio. Box incluso.",
+    "dettagliTecnici": {
+      "piano": "Ultimo con ascensore",
+      "riscaldamento": "Autonomo",
+      "classeEnergetica": "B",
+      "terrazzo": "45 m²"
+    },
+    "immagini": [
+      { "src": "assets/img/placeholders/attico-terrazzo.jpg", "alt": "Attico con ampio terrazzo e vista panoramica sulla città" }
+    ]
+  },
+  {
+    "id": 4,
+    "titolo": "Bilocale moderno",
+    "tipologia": "affitto",
+    "tipoImmobile": "Bilocale",
+    "prezzo": 750,
+    "prezzoDisplay": "€ 750/mese",
+    "superficie": 55,
+    "locali": 2,
+    "citta": "Torino",
+    "dataInserimento": "2025-01-22",
+    "descrizione": "Bilocale moderno con cucina a vista e zona living. Camera doppia, bagno con doccia. Ideale per studenti o giovani professionisti. Zona ben servita.",
+    "dettagliTecnici": {
+      "piano": "2",
+      "riscaldamento": "Centralizzato",
+      "classeEnergetica": "A"
+    },
+    "immagini": [
+      { "src": "assets/img/placeholders/bilocale-moderno.jpg", "alt": "Bilocale moderno con cucina a vista e zona living" }
+    ]
+  },
+  {
+    "id": 5,
+    "titolo": "Casa indipendente",
+    "tipologia": "vendita",
+    "tipoImmobile": "Casa indipendente",
+    "prezzo": 380000,
+    "prezzoDisplay": "€ 380.000",
+    "superficie": 160,
+    "locali": 5,
+    "citta": "Firenze",
+    "dataInserimento": "2025-01-10",
+    "descrizione": "Casa indipendente su due livelli con garage e giardino. Soggiorno con camino, cucina, 3 camere e 2 bagni. Zona residenziale tranquilla.",
+    "dettagliTecnici": {
+      "piano": "Piano terra e primo",
+      "riscaldamento": "Autonomo",
+      "classeEnergetica": "C",
+      "giardino": "Sì",
+      "garage": "Sì"
+    },
+    "immagini": [
+      { "src": "assets/img/placeholders/casa-indipendente.jpg", "alt": "Casa indipendente su due livelli con garage e giardino" }
+    ]
+  },
+  {
+    "id": 6,
+    "titolo": "Loft industriale",
+    "tipologia": "affitto",
+    "tipoImmobile": "Loft",
+    "prezzo": 1100,
+    "prezzoDisplay": "€ 1.100/mese",
+    "superficie": 95,
+    "locali": 1,
+    "citta": "Bologna",
+    "dataInserimento": "2025-01-25",
+    "descrizione": "Loft in stile industriale con soffitti alti e mattoni a vista. Open space con zona notte, bagno. Ampia luminosità. Zona universitaria.",
+    "dettagliTecnici": {
+      "piano": "Piano terra",
+      "riscaldamento": "Autonomo",
+      "classeEnergetica": "C"
+    },
+    "immagini": [
+      { "src": "assets/img/placeholders/loft-industriale.jpg", "alt": "Loft in stile industriale con soffitti alti e mattoni a vista" }
+    ]
+  }
+]

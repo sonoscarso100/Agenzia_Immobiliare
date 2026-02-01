@@ -1,0 +1,220 @@
+/* ==========================================================================
+   RESPONSIVE - Mobile-first
+   Breakpoint: 468, 768–1024, >1024 (desktop), >1280 (large)
+   Menu hamburger su mobile, CTA sticky su mobile
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   MOBILE FIRST (default: < 768px)
+   -------------------------------------------------------------------------- */
+
+/* Header: nav nascosta, hamburger visibile (il bottone è iniettato da main.js) */
+.layout-header__nav {
+  display: none;
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  padding: var(--space-6);
+  padding-top: var(--space-8);
+  background-color: var(--color-primary-dark);
+  overflow-y: auto;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.layout-header--nav-open .layout-header__nav {
+  display: flex;
+}
+
+.layout-header__nav a {
+  padding: var(--space-4);
+  font-size: var(--font-size-lg);
+  border-bottom: 1px solid var(--color-neutral-700);
+  color: var(--color-neutral-100);
+}
+
+.layout-header__nav a:hover {
+  background-color: var(--color-primary-light);
+}
+
+/* Hamburger button (iniettato da main.js) */
+.layout-header__hamburger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: var(--color-neutral-100);
+  cursor: pointer;
+  border-radius: var(--radius-md);
+  transition: background-color var(--transition-fast);
+}
+
+.layout-header__hamburger:hover {
+  background-color: var(--color-primary-light);
+}
+
+.layout-header__hamburger:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+}
+
+.layout-header__hamburger-icon {
+  width: 24px;
+  height: 18px;
+  position: relative;
+}
+
+.layout-header__hamburger-icon span {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 1px;
+  transition: transform var(--transition-base), opacity var(--transition-base);
+}
+
+.layout-header__hamburger-icon span:nth-child(1) { top: 0; }
+.layout-header__hamburger-icon span:nth-child(2) { top: 50%; transform: translateY(-50%); }
+.layout-header__hamburger-icon span:nth-child(3) { top: 100%; transform: translateY(-100%); }
+
+.layout-header--nav-open .layout-header__hamburger-icon span:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+.layout-header--nav-open .layout-header__hamburger-icon span:nth-child(2) {
+  opacity: 0;
+}
+.layout-header--nav-open .layout-header__hamburger-icon span:nth-child(3) {
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+/* CTA sticky mobile: barra fissa in basso su viewport < 768px */
+.layout-cta-sticky {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-4);
+  background-color: var(--color-primary);
+  color: var(--color-neutral-100);
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 90;
+}
+
+@media (max-width: 767px) {
+  .layout-cta-sticky {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+}
+
+.layout-cta-sticky .btn {
+  flex: 1;
+  min-width: 140px;
+  justify-content: center;
+}
+
+/* Padding bottom al main per non coprire contenuto con CTA sticky */
+@media (max-width: 767px) {
+  body.layout-cta-sticky-visible .layout-main {
+    padding-bottom: 80px;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 468px – small mobile
+   -------------------------------------------------------------------------- */
+@media (min-width: 468px) {
+  .layout-container {
+    padding-inline: var(--space-6);
+  }
+
+  .layout-cta-sticky .btn {
+    flex: 0 1 auto;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 768px – tablet: nav orizzontale, hamburger nascosto, CTA sticky nascosta
+   -------------------------------------------------------------------------- */
+@media (min-width: 768px) {
+  .layout-header__hamburger {
+    display: none;
+  }
+
+  .layout-header__nav {
+    display: flex;
+    position: static;
+    top: auto;
+    left: auto;
+    right: auto;
+    bottom: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0;
+    background: none;
+    overflow: visible;
+    box-shadow: none;
+  }
+
+  .layout-header__nav a {
+    padding: var(--space-2) var(--space-4);
+    font-size: var(--font-size-base);
+    border-bottom: none;
+  }
+
+  .layout-cta-sticky {
+    display: none;
+  }
+
+  body.layout-cta-sticky-visible .layout-main {
+    padding-bottom: 0;
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 1024px – desktop
+   -------------------------------------------------------------------------- */
+@media (min-width: 1024px) {
+  .layout-container {
+    padding-inline: var(--space-8);
+  }
+
+  .layout-header__nav {
+    gap: var(--space-6);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 1280px – large desktop
+   -------------------------------------------------------------------------- */
+@media (min-width: 1280px) {
+  .layout-container {
+    padding-inline: var(--space-8);
+  }
+}
+
+/* --------------------------------------------------------------------------
+   BREAKPOINT 1824px – extra large
+   -------------------------------------------------------------------------- */
+@media (min-width: 1824px) {
+  .layout-container {
+    padding-inline: var(--space-10);
+  }
+}

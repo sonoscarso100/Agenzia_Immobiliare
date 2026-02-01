@@ -1,0 +1,80 @@
+/* ==========================================================================
+   RESET - Moderno e minimale
+   Base neutra per consistenza cross-browser, senza rimuovere semantica
+   ========================================================================== */
+
+/* Box-sizing per tutti gli elementi (include padding/border nel width) */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Rimozione margini di default; font ereditato per consistenza */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* Altezza pagina fluida; font base su html per rem */
+html {
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+}
+
+/* Immagini responsive e non deformate */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Input/button/textarea ereditano font e non hanno dimensioni fisse */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  color: inherit;
+}
+
+/* Rimozione stili lista quando usati per navigazione o gruppi */
+ul[role="list"],
+ol[role="list"] {
+  list-style: none;
+}
+
+/* Link e bottoni senza sottolineatura/outline di default (gestiti nei componenti) */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+/* Tabella leggibile */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+}
+
+/* Evita overflow di testo lungo (es. URL) */
+p,
+h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}

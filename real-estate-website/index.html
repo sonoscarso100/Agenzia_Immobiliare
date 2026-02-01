@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Agenzia immobiliare di fiducia. Vendita e affitto di appartamenti, ville e locali commerciali. Scopri le nostre soluzioni su misura.">
+  <title>Home | Agenzia Immobiliare</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <header class="layout-header">
+    <div class="layout-header__inner layout-container">
+      <a href="index.html" class="layout-header__logo">Agenzia Immobiliare</a>
+      <nav class="layout-header__nav" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="immobili.html">Immobili</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout-main">
+    <section class="layout-section layout-section--hero">
+      <div class="layout-container">
+        <h1>Trova la casa dei tuoi sogni</h1>
+        <p>Vendita e affitto di immobili selezionati. Consulenza dedicata e trasparente.</p>
+        <div class="cta__actions">
+          <a href="immobili.html" class="btn btn--accent btn--lg">Sfoglia gli immobili</a>
+          <a href="contatti.html" class="btn btn--secondary btn--lg">Contattaci</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="layout-section" aria-labelledby="in-evidenza">
+      <div class="layout-container">
+        <h2 id="in-evidenza" class="layout-section__title">Immobili in evidenza</h2>
+        <!-- Container popolato da main.js con max 6 card da data/immobili.json -->
+        <div id="home-immobili-grid" class="layout-grid" aria-live="polite"></div>
+        <!-- Fallback: mostrato se JSON vuoto o caricamento fallito -->
+        <div id="home-immobili-fallback" class="layout-grid" style="display: none;" role="status">
+          <p style="grid-column: 1 / -1; text-align: center; color: var(--color-neutral-600); padding: var(--space-8);">
+            Nessun immobile in evidenza al momento. Torna a trovarci presto o <a href="contatti.html">contattaci</a> per informazioni.
+          </p>
+        </div>
+        <p style="margin-top: var(--space-8); text-align: center;">
+          <a href="immobili.html" class="btn btn--secondary">Vedi tutti gli immobili</a>
+        </p>
+      </div>
+    </section>
+
+    <section class="layout-section layout-section--alt" aria-labelledby="cta-contatti">
+      <div class="layout-container">
+        <div class="cta">
+          <h2 id="cta-contatti" class="cta__title">Hai bisogno di una consulenza?</h2>
+          <p class="cta__text">Il nostro team è a disposizione per aiutarti a trovare l’immobile ideale o a valorizzare il tuo.</p>
+          <div class="cta__actions">
+            <a href="contatti.html" class="btn btn--accent btn--lg">Contattaci</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="layout-footer">
+    <div class="layout-footer__inner layout-container">
+      <div class="layout-footer__grid">
+        <section aria-labelledby="footer-agenzia">
+          <h3 id="footer-agenzia">Agenzia Immobiliare</h3>
+          <p>Vendita e affitto di immobili. Consulenza professionale e trasparente.</p>
+        </section>
+        <section aria-labelledby="footer-link">
+          <h3 id="footer-link">Link utili</h3>
+          <ul>
+            <li><a href="immobili.html">Immobili</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="servizi.html">Servizi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="footer-contatti">
+          <h3 id="footer-contatti">Contatti</h3>
+          <p>Via Example 1, 20100 Milano<br>Tel. 02 1234567</p>
+        </section>
+      </div>
+      <div class="layout-footer__bottom">
+        <p>&copy; 2025 Agenzia Immobiliare. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

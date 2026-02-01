@@ -1,0 +1,8 @@
+# robots.txt - Template agenzia immobiliare
+# Sostituisci https://example.com con il tuo dominio reale.
+
+User-agent: *
+Allow: /
+
+# Sitemap (URL assoluto)
+Sitemap: https://example.com/sitemap.xml

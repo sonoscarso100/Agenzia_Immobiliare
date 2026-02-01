@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Elenco immobili in vendita e in affitto. Appartamenti, ville e locali commerciali selezionati dalla nostra agenzia.">
+  <title>Immobili in vendita e affitto | Agenzia Immobiliare</title>
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/variables.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body>
+  <header class="layout-header">
+    <div class="layout-header__inner layout-container">
+      <a href="index.html" class="layout-header__logo">Agenzia Immobiliare</a>
+      <nav class="layout-header__nav" aria-label="Navigazione principale">
+        <a href="index.html">Home</a>
+        <a href="immobili.html">Immobili</a>
+        <a href="chi-siamo.html">Chi siamo</a>
+        <a href="servizi.html">Servizi</a>
+        <a href="contatti.html">Contatti</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="layout-main">
+    <div class="layout-container" style="padding-top: var(--space-6);">
+      <nav aria-label="Breadcrumb">
+        <ol style="list-style: none; display: flex; flex-wrap: wrap; gap: var(--space-2); font-size: var(--font-size-sm); color: var(--color-neutral-500);">
+          <li><a href="index.html">Home</a></li>
+          <li aria-hidden="true">/</li>
+          <li aria-current="page">Immobili</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="layout-section" aria-labelledby="titolo-immobili">
+      <div class="layout-container">
+        <h1 id="titolo-immobili" class="layout-section__title">I nostri immobili</h1>
+        <p style="margin-bottom: var(--space-6);">Sfoglia le nostre proposte in vendita e in affitto. Usa i filtri per restringere la ricerca.</p>
+
+        <!-- Form filtri: vendita/affitto, prezzo, località, tipologia, ordinamento -->
+        <form id="filtri-immobili-form" class="filtri-immobili" aria-label="Filtra e ordina gli immobili" style="margin-bottom: var(--space-8); padding: var(--space-6); background: var(--color-neutral-100); border-radius: var(--radius-lg);">
+          <fieldset style="border: none; padding: 0; margin: 0;">
+            <legend class="form-label" style="margin-bottom: var(--space-4); font-size: var(--font-size-base); font-weight: var(--font-weight-semibold);">Filtra risultati</legend>
+            <div class="layout-grid--2" style="align-items: end;">
+              <div class="form-group">
+                <label for="filtro-contratto" class="form-label">Vendita / Affitto</label>
+                <select id="filtro-contratto" name="contratto" class="form-select" aria-describedby="filtro-contratto-desc">
+                  <option value="">Tutti</option>
+                  <option value="vendita">Vendita</option>
+                  <option value="affitto">Affitto</option>
+                </select>
+                <span id="filtro-contratto-desc" class="form-hint">Mostra solo vendita o solo affitto</span>
+              </div>
+              <div class="form-group">
+                <label for="filtro-prezzo-min" class="form-label">Prezzo min (€)</label>
+                <input type="number" id="filtro-prezzo-min" name="prezzo-min" class="form-input" min="0" step="1000" placeholder="es. 50000 o 500 (affitto)" aria-label="Prezzo minimo: totale per vendita, mensile per affitto">
+              </div>
+              <div class="form-group">
+                <label for="filtro-prezzo-max" class="form-label">Prezzo max (€)</label>
+                <input type="number" id="filtro-prezzo-max" name="prezzo-max" class="form-input" min="0" step="1000" placeholder="es. 500000 o 2000 (affitto)" aria-label="Prezzo massimo: totale per vendita, mensile per affitto">
+              </div>
+              <div class="form-group">
+                <label for="filtro-localita" class="form-label">Località</label>
+                <select id="filtro-localita" name="localita" class="form-select" aria-label="Filtra per città o zona">
+                  <option value="">Tutte le località</option>
+                  <!-- Opzioni popolate da immobili.js -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="filtro-tipo-immobile" class="form-label">Tipologia immobile</label>
+                <select id="filtro-tipo-immobile" name="tipo-immobile" class="form-select" aria-label="Filtra per tipologia (appartamento, villa, ecc.)">
+                  <option value="">Tutte le tipologie</option>
+                  <!-- Opzioni popolate da immobili.js -->
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="filtro-ordine" class="form-label">Ordina per</label>
+                <select id="filtro-ordine" name="ordine" class="form-select" aria-label="Ordina risultati">
+                  <option value="recente">Più recenti</option>
+                  <option value="prezzo-crescente">Prezzo crescente</option>
+                  <option value="prezzo-decrescente">Prezzo decrescente</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+        </form>
+
+        <!-- Messaggio numero risultati (aria-live per screen reader) -->
+        <p id="immobili-result-count" class="form-label" aria-live="polite" aria-atomic="true" style="margin-bottom: var(--space-4);"></p>
+
+        <!-- Griglia card: popolata da immobili.js -->
+        <div id="immobili-grid" class="layout-grid" aria-live="polite"></div>
+
+        <!-- Fallback: nessun risultato -->
+        <div id="immobili-fallback" style="display: none; padding: var(--space-10); text-align: center; background: var(--color-neutral-100); border-radius: var(--radius-lg);" role="status">
+          <p style="color: var(--color-neutral-600); margin-bottom: var(--space-4);">Nessun immobile trovato con i filtri selezionati.</p>
+          <p><a href="contatti.html" class="btn btn--secondary">Contattaci</a> per una ricerca personalizzata.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="layout-footer">
+    <div class="layout-footer__inner layout-container">
+      <div class="layout-footer__grid">
+        <section aria-labelledby="footer-agenzia">
+          <h3 id="footer-agenzia">Agenzia Immobiliare</h3>
+          <p>Vendita e affitto di immobili. Consulenza professionale e trasparente.</p>
+        </section>
+        <section aria-labelledby="footer-link">
+          <h3 id="footer-link">Link utili</h3>
+          <ul>
+            <li><a href="immobili.html">Immobili</a></li>
+            <li><a href="chi-siamo.html">Chi siamo</a></li>
+            <li><a href="servizi.html">Servizi</a></li>
+            <li><a href="contatti.html">Contatti</a></li>
+          </ul>
+        </section>
+        <section aria-labelledby="footer-contatti">
+          <h3 id="footer-contatti">Contatti</h3>
+          <p>Via Example 1, 20100 Milano<br>Tel. 02 1234567</p>
+        </section>
+      </div>
+      <div class="layout-footer__bottom">
+        <p>&copy; 2025 Agenzia Immobiliare. Tutti i diritti riservati.</p>
+      </div>
+    </div>
+  </footer>
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/immobili.js"></script>
+</body>
+</html>
